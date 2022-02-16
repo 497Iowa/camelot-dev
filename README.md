@@ -1,4 +1,12 @@
-# Demo
+# Camelot
+
+## Installation
+
+Install npm as a command-line tool on your computer.
+
+Type `npm install` in this directory to install all necessary reqiurements.
+
+Once you've installed, typed `yarn start` to launch it in a browser.
 
 ## Available Scripts
 
