@@ -192,7 +192,9 @@ const toolboxConfig = `<xml id="toolbox" style="display: none">
 </category>
 <sep/>
 <category name="Variables" colour="#a55b80" custom="VARIABLE">
-<block type="variables_get_pixel"/>
+<block type="variables_get_pixel">
+<field name="FIELD_NAME">pixel</field>
+</block>
 <block type="variables_set_pixel"/>
 </category>
 <category name="Functions" colour="#995ba5" custom="PROCEDURE"/>
@@ -200,6 +202,9 @@ const toolboxConfig = `<xml id="toolbox" style="display: none">
 <block type="for_each_pixel">
 <field name="PIXEL_VAR" id="tC?+]3-pPk3|!aUyg,@+">pixel</field>
 </block>
+<block type="get_red_of"/>
+<block type="get_green_of"/>
+<block type="get_blue_of"/>
 </category>
 </xml>`
 

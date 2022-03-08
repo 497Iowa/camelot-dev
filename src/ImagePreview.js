@@ -9,6 +9,7 @@ export default function ImagePreview(props) {
 
       //resize image using "contain" mode
       image.contain(100, 150);
+      image.color([{ apply: 'red', params: [100] }]);
     
       //retrieve image
       image.getBase64Async(jimp.MIME_JPEG).then(newImage => {

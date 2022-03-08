@@ -5,6 +5,8 @@ import { BlocklyWorkspace } from "react-blockly";
 import Blockly from "blockly";
 import ImagePreview from "./ImagePreview"
 import toolboxConfig from "./toolbox.js"
+import {workspaceRunner, workspaceEnvironment} from "./workspaceEnvironment"
+import defaultWorkspace from "./defaultWorkspace";
 
 export default function App() {
   const [xml, setXml] = useState("");
@@ -12,8 +14,8 @@ export default function App() {
 
   const oldXml =
     '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="text" x="70" y="30"><field name="TEXT"></field></block></xml>';
-  const initialXml =
-    '<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"></xml>';
+  const initialXml = defaultWorkspace;
+    //'<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"></xml>';
 
   const toolboxCategories = {
     kind: "categoryToolbox",
@@ -66,8 +68,20 @@ export default function App() {
     ],
   };
   function workspaceDidChange(workspace) {
-    const code = Blockly.JavaScript.workspaceToCode(workspace);
+    Blockly.JavaScript.addReservedWords("image");
+    window.LoopTrap = 1000;
+    Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if(--window.LoopTrap == 0) throw "Infinite loop.";\n';
+    const code = workspaceEnvironment + Blockly.JavaScript.workspaceToCode(workspace) + workspaceRunner;
     setJavascriptCode(code);
+  }
+
+  function runCode(code) {
+    try {
+      eval(code);
+    } catch (e) {
+      alert(e);
+      //throw e;
+    }    
   }
 
   return (
@@ -78,7 +92,9 @@ export default function App() {
         value={javascriptCode}
         readOnly
       ></textarea>
-      <ImagePreview code={javascriptCode}></ImagePreview>
+      <button onClick={() => runCode(javascriptCode)}>Run Code</button>
+      <canvas id="test-canvas"></canvas>
+      {/* <ImagePreview code={javascriptCode}></ImagePreview> */}
       
       <BlocklyWorkspace
         toolboxConfiguration={Blockly.utils.toolbox.convertToolboxDefToJson(toolboxConfig)}
@@ -103,7 +119,7 @@ export default function App() {
         onWorkspaceChange={workspaceDidChange}
         onXmlChange={setXml}
       />
-      {/* <pre id="generated-xml">{xml}</pre> */}
+      <pre id="generated-xml">{xml}</pre>
 
     </>
   );

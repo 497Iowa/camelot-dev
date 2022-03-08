@@ -26,3 +26,11 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Important Links
+
+Blocky Factory: https://blockly-demo.appspot.com/static/demos/blockfactory/index.html
+
+JIMP GitHub / Docs: https://github.com/oliver-moran/jimp
+
+React-blockly: https://github.com/nbudin/react-blockly
