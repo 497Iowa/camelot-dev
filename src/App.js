@@ -1,6 +1,6 @@
 import "./App.css";
 import "./customBlocks/custom_Blocks";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BlocklyWorkspace } from "react-blockly";
 import Blockly from "blockly";
 import ImagePreview from "./ImagePreview"
@@ -12,61 +12,6 @@ export default function App() {
   const [xml, setXml] = useState("");
   const [javascriptCode, setJavascriptCode] = useState("");
 
-  const oldXml =
-    '<xml xmlns="http://www.w3.org/1999/xhtml"><block type="text" x="70" y="30"><field name="TEXT"></field></block></xml>';
-  const initialXml = defaultWorkspace;
-    //'<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"></xml>';
-
-  const toolboxCategories = {
-    kind: "categoryToolbox",
-    contents: [
-      {
-        kind: "category",
-        name: "Logic",
-        colour: "#5C81A6",
-        contents: [
-          {
-            kind: "block",
-            type: "controls_if",
-          },
-          {
-            kind: "block",
-            type: "logic_compare",
-          },
-        ],
-      },
-      {
-        kind: "category",
-        name: "Math",
-        colour: "#5CA65C",
-        contents: [
-          {
-            kind: "block",
-            type: "math_round",
-          },
-          {
-            kind: "block",
-            type: "math_number",
-          },
-        ],
-      },
-      {
-        kind: "category",
-        name: "Custom",
-        colour: "#5CA699",
-        contents: [
-          {
-            kind: "block",
-            type: "new_boundary_function",
-          },
-          {
-            kind: "block",
-            type: "return",
-          },
-        ],
-      },
-    ],
-  };
   function workspaceDidChange(workspace) {
     Blockly.JavaScript.addReservedWords("image");
     window.LoopTrap = 1000;
@@ -106,8 +51,27 @@ export default function App() {
           comments : true, 
           disable : true, 
           maxBlocks : Infinity, 
+          grid: {
+            spacing: 20,
+            length: 3,
+            colour: '#ccc',
+            snap: false
+          },
+          renderer: 'thrasos',
+          theme: {
+            'base': 'classic',
+            'componentStyles': {
+              'toolboxBackgroundColour': '#e6e9ef',
+              'flyoutBackgroundColour': '#d2d2d2'
+            },
+            'fontStyle': {
+              "family": "Fredoka, sans-serif",
+              // "weight": "bold",
+              "size": 12
+            },
+          },
           trashcan : true, 
-          horizontalLayout : true, 
+          horizontalLayout : false, 
           toolboxPosition : 'start', 
           css : true, 
           media : 'https://blockly-demo.appspot.com/static/media/', 

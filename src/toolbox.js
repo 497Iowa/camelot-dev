@@ -190,7 +190,6 @@ const toolboxConfig = `<xml id="toolbox" style="display: none">
 </block>
 <block type="math_random_float"/>
 </category>
-<sep/>
 <category name="Variables" colour="#a55b80" custom="VARIABLE">
 <block type="variables_get_pixel">
 <field name="FIELD_NAME">pixel</field>

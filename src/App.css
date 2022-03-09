@@ -1,3 +1,28 @@
 .fill-height {
   height: calc(100vh - 114px);
 }
+
+.blocklyTreeLabel {
+  font-family: "Fredoka", sans-serif;
+}
+
+.blocklyTreeRow {
+  padding-bottom: 4px;
+  border-radius: 6px;
+}
+
+.blocklyTreeIcon {
+  background-size: contain;
+  visibility: visible;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.blocklyTreeIcon {
+  background-image: none;
+  margin-left: 4px;
+}
+
+.blocklyToolboxCategory {
+  margin: 2px;
+}

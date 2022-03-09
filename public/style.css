@@ -1,0 +1,27 @@
+[aria-labelledby="blockly-t.label"] .blocklyTreeIcon {
+    background-image: url("icons/color.png")
+}
+
+[aria-labelledby="blockly-u.label"] .blocklyTreeIcon {
+    background-image: url("icons/logic.png")
+}
+
+[aria-labelledby="blockly-v.label"] .blocklyTreeIcon {
+    background-image: url("icons/loops.png")
+}
+
+[aria-labelledby="blockly-w.label"] .blocklyTreeIcon {
+    background-image: url("icons/math.png")
+}
+
+[aria-labelledby="blockly-x.label"] .blocklyTreeIcon {
+    background-image: url("icons/variables.png")
+}
+
+[aria-labelledby="blockly-y.label"] .blocklyTreeIcon {
+    background-image: url("icons/functions.png")
+}
+
+[aria-labelledby="blockly-z.label"] .blocklyTreeIcon {
+    background-image: url("icons/custom.png")
+}
