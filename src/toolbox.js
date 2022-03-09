@@ -204,6 +204,7 @@ const toolboxConfig = `<xml id="toolbox" style="display: none">
 <block type="get_red_of"/>
 <block type="get_green_of"/>
 <block type="get_blue_of"/>
+<block type="get_pixel_relative"/>
 </category>
 </xml>`
 

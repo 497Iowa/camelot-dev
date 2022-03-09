@@ -1,5 +1,5 @@
 import "./App.css";
-import "./customBlocks/custom_Blocks";
+import "./customBlocks/customBlocks";
 import React, { useState, useEffect } from "react";
 import { BlocklyWorkspace } from "react-blockly";
 import Blockly from "blockly";
@@ -13,9 +13,9 @@ export default function App() {
   const [javascriptCode, setJavascriptCode] = useState("");
 
   function workspaceDidChange(workspace) {
-    Blockly.JavaScript.addReservedWords("image");
-    window.LoopTrap = 1000;
-    Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if(--window.LoopTrap == 0) throw "Infinite loop.";\n';
+    // Blockly.JavaScript.addReservedWords("image");
+    // window.LoopTrap = 1000;
+    // Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if(--window.LoopTrap == 0) throw "Infinite loop.";\n';
     const code = workspaceEnvironment + Blockly.JavaScript.workspaceToCode(workspace) + workspaceRunner;
     setJavascriptCode(code);
   }
@@ -43,10 +43,9 @@ export default function App() {
       
       <BlocklyWorkspace
         toolboxConfiguration={Blockly.utils.toolbox.convertToolboxDefToJson(toolboxConfig)}
-        initialXml={initialXml}
+        initialXml={defaultWorkspace}
         className="fill-height"
         workspaceConfiguration={{
-          // toolbox : toolbox, 
           collapse : true, 
           comments : true, 
           disable : true, 
@@ -66,7 +65,6 @@ export default function App() {
             },
             'fontStyle': {
               "family": "Fredoka, sans-serif",
-              // "weight": "bold",
               "size": 12
             },
           },
@@ -83,7 +81,7 @@ export default function App() {
         onWorkspaceChange={workspaceDidChange}
         onXmlChange={setXml}
       />
-      <pre id="generated-xml">{xml}</pre>
+      {/* <pre id="generated-xml">{xml}</pre> */}
 
     </>
   );

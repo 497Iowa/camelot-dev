@@ -34,3 +34,5 @@ Blocky Factory: https://blockly-demo.appspot.com/static/demos/blockfactory/index
 JIMP GitHub / Docs: https://github.com/oliver-moran/jimp
 
 React-blockly: https://github.com/nbudin/react-blockly
+
+Caman Tutorial: https://code.tutsplus.com/tutorials/creating-an-image-editor-using-camanjs-creating-custom-filters--cms-30253
