@@ -26,3 +26,17 @@
 .blocklyToolboxCategory {
   margin: 2px;
 }
+
+.blocklyFlyout {
+  transition: transform ease-in-out 0.5s, visibility ease-in-out 0.5s;
+}
+
+.blocklyFlyout[style*="display: none"] {
+  transform: translate(-275px) !important;
+  display: block !important;
+  visibility: hidden;
+}
+
+.blocklyFlyout[style*="display: block"] {
+  /* transform: translate(200px) !important; */
+}
