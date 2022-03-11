@@ -37,7 +37,7 @@ export default function App() {
         value={javascriptCode}
         readOnly
       ></textarea>
-      <button onClick={() => runCode(javascriptCode)}>Run Code</button>
+      <button class="button" onClick={() => runCode(javascriptCode)}>Run Code</button>
       <canvas id="test-canvas"></canvas>
       {/* <ImagePreview code={javascriptCode}></ImagePreview> */}
       
