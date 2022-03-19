@@ -27,6 +27,11 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### Packages Used for Navbar (may need to install)
+- `react-starter-dom`
+- `styled-components`
+- `react-icons`
+
 ## Important Links
 
 Blocky Factory: https://blockly-demo.appspot.com/static/demos/blockfactory/index.html
