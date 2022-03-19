@@ -19,23 +19,32 @@ const Lessons = props => {
   ])
 
   const [status, setStatus] = useState ({
-    index: 1,
-    disabledNext: false,
-    disabledPrev: true
+    index: 0,
+    disabledPrev: true,
+    disabledNext: false
   })
 
   const togglePrev = (e) => {
+    console.log(status)
     let index = status.index - 1;
     let disabledPrev = (index === 0);
 
-    setStatus({ index: index, disabledPrev: disabledPrev, disabledNext: false })
+    setStatus({
+      index: index, 
+      disabledPrev: disabledPrev,
+      disabledNext: false
+    })
   }
 
   const toggleNext = (e) => {
-     let index = status.index + 1;
-     let disabledNext = index === (lessonText.length - 1);
+    let index = status.index + 1;
+    let disabledNext = index === (lessonText.length - 1);
 
-    setStatus({ index: index, disabledNext: disabledNext, disabledPrev: false })
+    setStatus({
+      index: index, 
+      disabledPrev: false,
+      disabledNext: disabledNext 
+    })
   }
 
   function Prev(props) {
@@ -52,9 +61,9 @@ const Lessons = props => {
 
   return (
     <div className={styles.box}>
-      <h1 className={styles.title}>{lessonText[status.index - 1].title}</h1>
+      <h1 className={styles.title}>{lessonText[status.index].title}</h1>
       <p>
-      {lessonText[status.index - 1].text}
+      {lessonText[status.index].text}
       </p>
       <div>
         <Prev toggle={(e) => togglePrev(e)} active={status.disabledPrev} />
