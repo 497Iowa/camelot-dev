@@ -7,6 +7,7 @@ import ImagePreview from "./ImagePreview"
 import toolboxConfig from "./toolbox.js"
 import {workspaceRunner, workspaceEnvironment} from "./workspaceEnvironment"
 import defaultWorkspace from "./defaultWorkspace";
+import Lessons from "./Lessons";
 
 export default function App() {
   const [xml, setXml] = useState("");
@@ -30,7 +31,8 @@ export default function App() {
   }
 
   return (
-    <>
+    <> 
+      <Lessons />
       <textarea
         id="code"
         style={{ height: "200px", width: "400px" }}
