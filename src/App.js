@@ -38,7 +38,11 @@ export default function App() {
     setDirty(false);
     workspace.clear();
     Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(_xml), workspace)
+  }
 
+  const switchImage = () => {
+    document.querySelector('#test-canvas').removeAttribute('data-caman-id');
+    eval(`loadImage("../iowa.jpg")`);
   }
 
   function runCode(code) {
@@ -110,6 +114,7 @@ export default function App() {
           ></textarea>
           <button className="button" onClick={() => {navigator.clipboard.writeText(JSON.stringify({xml: xml}))}}>Copy Filter JSON</button>
           <button className="button" onClick={() => runCode(javascriptCode)}>Run Code</button>
+          <button className="button" onClick={switchImage}>Iowa Mode</button>
           <canvas id="test-canvas"></canvas>
         </div>
         
