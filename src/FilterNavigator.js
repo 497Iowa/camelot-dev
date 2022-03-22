@@ -6,8 +6,6 @@ const FilterNavigator = props => {
 
   const [filterInput, setFilterInput] = useState("");
 
-  const [dirty, setDirty] = useState(false);
-
   const [filters, setFilters] = useState({filters: []});
 
   function getFiltersFromStorage() {
@@ -31,10 +29,6 @@ const FilterNavigator = props => {
     setFilters(getFiltersFromStorage());
   }, []);
 
-  useEffect(() => {
-    if (props.refresh > 0) setDirty(true);
-  }, [props.refresh])
-
   const onSaveClicked = () => {
     console.log(filterInput);
     
@@ -56,7 +50,6 @@ const FilterNavigator = props => {
       setFilters({ ...filters, filters: newFilters });
       updateFiltersInStorage({ ...filters, filters: newFilters });
     }
-    setDirty(false);
   }
 
   function FilterItem(filterProps) {
@@ -115,7 +108,7 @@ const FilterNavigator = props => {
   } else if (!isFilterInStorage(filterInput)) {
     saveBtnClass += " is-success";
     showNewFilterMessage = true;
-  } else if (dirty) {
+  } else if (props.dirty) {
     saveBtnClass += " is-danger"
     showUnsavedMessage = true;
   }
@@ -141,7 +134,6 @@ const FilterNavigator = props => {
 
   return (
     <>
-      {/* <button className="button" onClick={() => setDirty(true)}>Dirtify</button> */}
       <div className={`dropdown ${dropdown ? "is-active" : ""}`}>
         <div className="dropdown-trigger">
            {unsaved}

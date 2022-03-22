@@ -16,8 +16,8 @@ export default function App() {
   const [xml, setXml] = useState("");
   const [loadedXml, setLoadedXml] = useState("");
   const [javascriptCode, setJavascriptCode] = useState("");
-  const [refresh, doRefresh] = useState(0);
   const [workspace, setWorkspace] = useState(null);
+  const [dirty, setDirty] = useState(false);
 
   function workspaceDidChange(_workspace) {
     if (workspace === null) setWorkspace(_workspace);
@@ -30,17 +30,11 @@ export default function App() {
   }
 
   const onXmlChange = (_xml) => {
-    console.log("xml changes");
-    console.log(xml);
-    console.log(_xml);
-    if (loadedXml != null && xml !== loadedXml) doRefresh(x => x + 1);
+    setDirty(loadedXml !== "" && xml !== loadedXml);
     setXml(_xml);
-    
   }
 
   const loadXml = (_xml) => {
-    console.log("xml injected");
-    console.log(_xml)
     setXml(_xml);
     setLoadedXml(_xml);
     workspace.clear();
@@ -73,7 +67,7 @@ export default function App() {
       <FilterNavigator
         xml={xml}
         setXml={loadXml}
-        refresh={refresh}
+        dirty={dirty}
       ></FilterNavigator>
       {/* <ImagePreview code={javascriptCode}></ImagePreview> */}
       
