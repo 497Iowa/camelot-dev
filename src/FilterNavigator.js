@@ -108,10 +108,10 @@ const FilterNavigator = props => {
     saveBtnDisabled = true;
   } else if (!isFilterInStorage(filterInput)) {
     saveBtnClass += " is-success";
-    showNewFilterMessage = true;
+    showNewFilterMessage = true && !dropdown;
   } else if (props.dirty) {
     saveBtnClass += " is-danger"
-    showUnsavedMessage = true;
+    showUnsavedMessage = true && !dropdown;
   }
 
   let unsaved = <></>;
@@ -135,7 +135,7 @@ const FilterNavigator = props => {
 
   return (
     <>
-      <div className={`dropdown ${dropdown ? "is-active" : ""}`}>
+      <div className={`dropdown is-up filter-navigator ${dropdown ? "is-active" : ""}`}>
         <div className="dropdown-trigger">
            {unsaved}
            {newFilter}
@@ -149,11 +149,10 @@ const FilterNavigator = props => {
                   <button className={saveBtnClass} disabled={saveBtnDisabled} onClick={onSaveClicked}>
                     <span className="icon is-small is-right"><i className="fas fa-floppy-disk"></i></span>
                   </button>
-                  <div className="arrow-down"></div>
                 </div>
                 <div className="control">
                   <button className="button is-outlined" onClick={() => setDropdown(!dropdown)}>
-                    <span className="icon is-small is-right"><i className="fas fa-angle-down"></i></span>
+                    <span className="icon is-small is-right"><i className="fas fa-angle-up"></i></span>
                   </button>
                 </div>
 

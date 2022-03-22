@@ -52,66 +52,71 @@ export default function App() {
 
   return (
     <> 
-      <Lessons />
-      <textarea
-        id="code"
-        style={{ height: "200px", width: "400px" }}
-        value={javascriptCode}
-        readOnly
-      ></textarea>
-      <button className="button" onClick={() => runCode(javascriptCode)}>Run Code</button>
-      <canvas id="test-canvas"></canvas>
-      {/* <SaveFilter></SaveFilter>
-      <LoadFilter></LoadFilter> */}
-      <FilterNavigator
-        xml={xml}
-        setXml={loadXml}
-        dirty={dirty}
-      ></FilterNavigator>
-      {/* <ImagePreview code={javascriptCode}></ImagePreview> */}
+      <div className="is-flex">
+        <div className="blockly-column is-flex is-flex-grow-1 is-flex-direction-column">
+          <Lessons />
+          <FilterNavigator
+            xml={xml}
+            setXml={loadXml}
+            dirty={dirty}
+          ></FilterNavigator>
+          <BlocklyWorkspace
+          toolboxConfiguration={Blockly.utils.toolbox.convertToolboxDefToJson(toolboxConfig)}
+          initialXml={defaultWorkspace}
+          className="fill-height"
+          workspaceConfiguration={{
+            collapse : true, 
+            comments : true, 
+            disable : true, 
+            maxBlocks : Infinity, 
+            grid: {
+              spacing: 20,
+              length: 3,
+              colour: '#ccc',
+              snap: false
+            },
+            renderer: 'thrasos',
+            theme: {
+              'base': 'classic',
+              'componentStyles': {
+                'toolboxBackgroundColour': '#e6e9ef',
+                'flyoutBackgroundColour': '#d2d2d2'
+              },
+              'fontStyle': {
+                "family": "Fredoka, sans-serif",
+                "size": 12
+              },
+            },
+            trashcan : true, 
+            horizontalLayout : false, 
+            toolboxPosition : 'start', 
+            css : true, 
+            media : 'https://blockly-demo.appspot.com/static/media/', 
+            rtl : false, 
+            scrollbars : false, 
+            sounds : true, 
+            oneBasedIndex : true
+          }}
+          onWorkspaceChange={workspaceDidChange}
+          onXmlChange={onXmlChange}
+          />
+        </div>
+        <div className="preview-column is-flex is-flex-direction-column">
+          <textarea
+            id="code"
+            style={{ height: "200px", width: "400px" }}
+            value={javascriptCode}
+            readOnly
+          ></textarea>
+          <button className="button" onClick={() => runCode(javascriptCode)}>Run Code</button>
+          <canvas id="test-canvas"></canvas>
+        </div>
+        
+        
       
-      <BlocklyWorkspace
-        toolboxConfiguration={Blockly.utils.toolbox.convertToolboxDefToJson(toolboxConfig)}
-        initialXml={defaultWorkspace}
-        className="fill-height"
-        workspaceConfiguration={{
-          collapse : true, 
-          comments : true, 
-          disable : true, 
-          maxBlocks : Infinity, 
-          grid: {
-            spacing: 20,
-            length: 3,
-            colour: '#ccc',
-            snap: false
-          },
-          renderer: 'thrasos',
-          theme: {
-            'base': 'classic',
-            'componentStyles': {
-              'toolboxBackgroundColour': '#e6e9ef',
-              'flyoutBackgroundColour': '#d2d2d2'
-            },
-            'fontStyle': {
-              "family": "Fredoka, sans-serif",
-              "size": 12
-            },
-          },
-          trashcan : true, 
-          horizontalLayout : false, 
-          toolboxPosition : 'start', 
-          css : true, 
-          media : 'https://blockly-demo.appspot.com/static/media/', 
-          rtl : false, 
-          scrollbars : false, 
-          sounds : true, 
-          oneBasedIndex : true
-        }}
-        onWorkspaceChange={workspaceDidChange}
-        onXmlChange={onXmlChange}
-      />
-      {/* <pre id="generated-xml">{xml}</pre> */}
-
+        
+        {/* <pre id="generated-xml">{xml}</pre> */}
+        </div>
     </>
   );
 }
