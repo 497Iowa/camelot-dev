@@ -73,7 +73,7 @@ const FilterNavigator = props => {
       setFilters({ ...filters, filters: newFilters });
       updateFiltersInStorage({ ...filters, filters: newFilters });
 
-      if (filterProps.filter.name == filterInput) {
+      if (filterProps.filter.name === filterInput) {
         setFilterInput("");
       }
     }
@@ -180,17 +180,15 @@ const FilterNavigator = props => {
         </div>
         <div className="dropdown-menu" id="filter-dropdown-menu" role="menu">
             <div className="dropdown-content filter-dropdown-content">
+                <div className="dropdown-item dropdown-separator">My Filters</div>
                 {filters.filters.map(e => 
                     <FilterItem filter={e}/>
                   )}
-                <hr class="dropdown-divider"></hr>
+                <hr className="dropdown-divider"></hr>
+                <div className="dropdown-item dropdown-separator">Built-in Filters</div>
                 {defaultFilters.filters.map(e => 
                     <FilterItem isDefault filter={e}/>
                   )}
-                {/* <a href="#" className="dropdown-item">Dropdown item</a>
-                <a href="#" className="dropdown-item">Other dropdown item a  f f ff  sdas fdsaf dafds fds a f f ff f f f  f</a>
-                <hr className="dropdown-divider"/>
-                <a href="#" className="dropdown-item">With a divider</a> */}
             </div>
         </div>
     </div>

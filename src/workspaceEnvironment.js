@@ -42,8 +42,8 @@ Caman.Pixel.prototype.putPixelRelative = function (horiz, vert, rgba) {
 };
 
 var _original_img;
-var _img_width;
-var _img_height;
+// var _img_width;
+// var _img_height;
 
 function getFromOriginal(x, y) {
     x = Math.max(0, Math.min(_img_width - 1, x));
@@ -63,25 +63,14 @@ Caman.Filter.register("storeOriginalImg", function () {
 `
 
 const workspaceRunner = `
-Caman("#test-canvas", "./wp.jpg", function () {
-    // manipulate image here
-    _img_width = 500;
-    _img_height = 300;
-
-    this.revert();
-    this.resize({
-        width: _img_width,
-        height: _img_height
-      });
-    
+Caman("#test-canvas", function () {
+    this.revert(false);
     this.storeOriginalImg();
-    this.currentFilter();
-    this.render();
-  });
+    this.currentFilter().render()
+});
   
   
 `
-
 
 module.exports = {
     workspaceEnvironment,
