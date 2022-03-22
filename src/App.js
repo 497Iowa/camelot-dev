@@ -8,8 +8,6 @@ import toolboxConfig from "./toolbox.js"
 import {workspaceRunner, workspaceEnvironment} from "./workspaceEnvironment"
 import defaultWorkspace from "./defaultWorkspace";
 import Lessons from "./Lessons";
-import LoadFilter from "./LoadFilter";
-import SaveFilter from "./SaveFilter";
 import FilterNavigator from "./FilterNavigator";
 
 export default function App() {
