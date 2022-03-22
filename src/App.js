@@ -37,6 +37,7 @@ export default function App() {
   const loadXml = (_xml) => {
     setXml(_xml);
     setLoadedXml(_xml);
+    setDirty(false);
     workspace.clear();
     Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(_xml), workspace)
 

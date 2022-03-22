@@ -42,6 +42,7 @@ const FilterNavigator = props => {
         }
         return e;
       });
+      props.setXml(props.xml);
       setFilters({ ...filters, filters: newFilters });
       updateFiltersInStorage({ ...filters, filters: newFilters });
     } else {
