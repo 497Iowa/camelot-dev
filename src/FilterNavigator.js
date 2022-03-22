@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import defaultFilters from "./defaultFilters";
 
 const FilterNavigator = props => {
 
@@ -23,6 +24,10 @@ const FilterNavigator = props => {
   function isFilterInStorage(name) {
     if (filters === null) return false;
     return filters.filters.find(elt => elt.name === name) !== undefined;
+  }
+
+  function isFilterDefault(name) {
+    return defaultFilters.filters.find(elt => elt.name === name) !== undefined;
   }
 
   useEffect(() => {
@@ -73,6 +78,28 @@ const FilterNavigator = props => {
       }
     }
 
+
+    const editButton = filterProps.isDefault ? <></> :
+      <p className="control">
+        <button className="button is-white " onClick={onEditClicked}>
+          <span className="icon is-small is-right"><i className="fas fa-pen-to-square"></i></span>
+        </button>
+      </p>
+
+    const deleteButton = filterProps.isDefault ? <></> :
+      <p className="control">
+        <button className="button is-white" onClick={onDeleteClicked}>
+          <span className="icon is-small is-right"><i className="fas fa-trash"></i></span>
+        </button>
+      </p>
+
+    const loadButton = !filterProps.isDefault ? <></> :
+    <p className="control">
+      <button className="button is-white " onClick={onEditClicked}>
+        <span className="icon is-small is-right"><i className="fas fa-arrow-down"></i></span>
+      </button>
+    </p>
+
     return (
       <div className="dropdown-item level filter-item">
                   <div className="level-left">
@@ -82,18 +109,9 @@ const FilterNavigator = props => {
                   </div>
                   <div className="level-right">
                     <div className="field is-grouped level-item">
-                      <p className="control">
-                      <button className="button is-white " onClick={onEditClicked}>
-                        <span className="icon is-small is-right"><i className="fas fa-pen-to-square"></i></span>
-                      </button>
-                      </p>
-                      
-                      <p className="control">
-                      <button className="button is-white" onClick={onDeleteClicked}>
-                        <span className="icon is-small is-right"><i className="fas fa-trash"></i></span>
-                      </button>
-                      </p>
-                      
+                        {editButton}
+                        {deleteButton}
+                        {loadButton}
                     </div>
                   </div>
                 </div>
@@ -106,12 +124,14 @@ const FilterNavigator = props => {
   let showNewFilterMessage = false;
   if (filterInput === "") {
     saveBtnDisabled = true;
-  } else if (!isFilterInStorage(filterInput)) {
+  } else if (!isFilterInStorage(filterInput) && !isFilterDefault(filterInput)) {
     saveBtnClass += " is-success";
     showNewFilterMessage = true && !dropdown;
-  } else if (props.dirty) {
+  } else if (props.dirty && !isFilterDefault(filterInput)) {
     saveBtnClass += " is-danger"
     showUnsavedMessage = true && !dropdown;
+  } else if (isFilterDefault(filterInput)) {
+    saveBtnDisabled = true;
   }
 
   let unsaved = <></>;
@@ -159,9 +179,13 @@ const FilterNavigator = props => {
             </div>
         </div>
         <div className="dropdown-menu" id="filter-dropdown-menu" role="menu">
-            <div className="dropdown-content">
+            <div className="dropdown-content filter-dropdown-content">
                 {filters.filters.map(e => 
                     <FilterItem filter={e}/>
+                  )}
+                <hr class="dropdown-divider"></hr>
+                {defaultFilters.filters.map(e => 
+                    <FilterItem isDefault filter={e}/>
                   )}
                 {/* <a href="#" className="dropdown-item">Dropdown item</a>
                 <a href="#" className="dropdown-item">Other dropdown item a  f f ff  sdas fdsaf dafds fds a f f ff f f f  f</a>

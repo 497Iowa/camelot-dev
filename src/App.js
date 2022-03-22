@@ -108,6 +108,7 @@ export default function App() {
             value={javascriptCode}
             readOnly
           ></textarea>
+          <button className="button" onClick={() => {navigator.clipboard.writeText(JSON.stringify({xml: xml}))}}>Copy Filter JSON</button>
           <button className="button" onClick={() => runCode(javascriptCode)}>Run Code</button>
           <canvas id="test-canvas"></canvas>
         </div>

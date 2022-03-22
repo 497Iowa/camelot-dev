@@ -82,3 +82,8 @@
   left: 125px;
   bottom: 8px;
 }
+
+.filter-dropdown-content {
+  max-height: 20em;
+  overflow: auto;
+}
