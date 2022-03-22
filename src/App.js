@@ -8,17 +8,44 @@ import toolboxConfig from "./toolbox.js"
 import {workspaceRunner, workspaceEnvironment} from "./workspaceEnvironment"
 import defaultWorkspace from "./defaultWorkspace";
 import Lessons from "./Lessons";
+import LoadFilter from "./LoadFilter";
+import SaveFilter from "./SaveFilter";
+import FilterNavigator from "./FilterNavigator";
 
 export default function App() {
   const [xml, setXml] = useState("");
+  const [loadedXml, setLoadedXml] = useState("");
   const [javascriptCode, setJavascriptCode] = useState("");
+  const [refresh, doRefresh] = useState(0);
+  const [workspace, setWorkspace] = useState(null);
 
-  function workspaceDidChange(workspace) {
+  function workspaceDidChange(_workspace) {
+    if (workspace === null) setWorkspace(_workspace);
+    
     // Blockly.JavaScript.addReservedWords("image");
     // window.LoopTrap = 1000;
     // Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if(--window.LoopTrap == 0) throw "Infinite loop.";\n';
-    const code = workspaceEnvironment + Blockly.JavaScript.workspaceToCode(workspace) + workspaceRunner;
+    const code = workspaceEnvironment + Blockly.JavaScript.workspaceToCode(_workspace) + workspaceRunner;
     setJavascriptCode(code);
+  }
+
+  const onXmlChange = (_xml) => {
+    console.log("xml changes");
+    console.log(xml);
+    console.log(_xml);
+    if (loadedXml != null && xml !== loadedXml) doRefresh(x => x + 1);
+    setXml(_xml);
+    
+  }
+
+  const loadXml = (_xml) => {
+    console.log("xml injected");
+    console.log(_xml)
+    setXml(_xml);
+    setLoadedXml(_xml);
+    workspace.clear();
+    Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(_xml), workspace)
+
   }
 
   function runCode(code) {
@@ -39,8 +66,15 @@ export default function App() {
         value={javascriptCode}
         readOnly
       ></textarea>
-      <button class="button" onClick={() => runCode(javascriptCode)}>Run Code</button>
+      <button className="button" onClick={() => runCode(javascriptCode)}>Run Code</button>
       <canvas id="test-canvas"></canvas>
+      {/* <SaveFilter></SaveFilter>
+      <LoadFilter></LoadFilter> */}
+      <FilterNavigator
+        xml={xml}
+        setXml={loadXml}
+        refresh={refresh}
+      ></FilterNavigator>
       {/* <ImagePreview code={javascriptCode}></ImagePreview> */}
       
       <BlocklyWorkspace
@@ -81,7 +115,7 @@ export default function App() {
           oneBasedIndex : true
         }}
         onWorkspaceChange={workspaceDidChange}
-        onXmlChange={setXml}
+        onXmlChange={onXmlChange}
       />
       {/* <pre id="generated-xml">{xml}</pre> */}
 

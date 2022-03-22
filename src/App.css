@@ -27,8 +27,13 @@
   margin: 2px;
 }
 
+.blocklyToolboxDiv {
+  z-index: 2;
+}
+
 .blocklyFlyout {
   transition: transform ease-in-out 0.5s, visibility ease-in-out 0.5s;
+  z-index: 1;
 }
 
 .blocklyFlyout[style*="display: none"] {
@@ -39,4 +44,26 @@
 
 .blocklyFlyout[style*="display: block"] {
   /* transform: translate(200px) !important; */
+}
+
+
+.save-btn {
+  z-index: 1;
+}
+
+.unsaved-message {
+  margin-bottom: .5rem !important;
+}
+
+.unsaved-message .message-body {
+  padding: 0.75em 0.75em !important;
+}
+
+#filter-dropdown-menu {
+  max-width: 100%;
+  width: 100%;
+}
+
+.filter-item {
+  margin-bottom: 0 !important;
 }

@@ -26,9 +26,8 @@
     background-image: url("icons/custom.png")
 }
 
-
 /* https://markodenic.com/tools/buttons-generator/ */
-.button {
+/* .button {
     min-width: 130px;
     height: 40px;
     color: #fff;
@@ -51,4 +50,4 @@
 }
 .button:active {
     top: 2px;
-}
+} */
