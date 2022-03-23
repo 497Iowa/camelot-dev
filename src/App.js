@@ -3,7 +3,7 @@ import "./customBlocks/customBlocks";
 import React, { useState, useEffect } from "react";
 import { BlocklyWorkspace } from "react-blockly";
 import Blockly from "blockly";
-import ImagePreview from "./ImagePreview"
+import ImageFile from "./ImagePreview2"
 import toolboxConfig from "./toolbox.js"
 import {workspaceRunner, workspaceEnvironment} from "./workspaceEnvironment"
 import defaultWorkspace from "./defaultWorkspace";
@@ -40,9 +40,10 @@ export default function App() {
         readOnly
       ></textarea>
       <button class="button" onClick={() => runCode(javascriptCode)}>Run Code</button>
-      <canvas id="test-canvas"></canvas>
       {/* <ImagePreview code={javascriptCode}></ImagePreview> */}
       
+      <ImageFile />
+
       <BlocklyWorkspace
         toolboxConfiguration={Blockly.utils.toolbox.convertToolboxDefToJson(toolboxConfig)}
         initialXml={defaultWorkspace}

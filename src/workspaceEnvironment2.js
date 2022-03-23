@@ -63,7 +63,7 @@ Caman.Filter.register("storeOriginalImg", function () {
 `
 
 const workspaceRunner = `
-Caman("#canvas",  function () {
+Caman("#test-canvas", "./wp.jpg", function () {
     // manipulate image here
     _img_width = 500;
     _img_height = 300;
