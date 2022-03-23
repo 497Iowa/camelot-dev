@@ -1,5 +1,7 @@
 .fill-height {
-  height: calc(100vh - 150px);
+  height: calc(100vh - 248px);
+  margin: 20px;
+  margin-top: 0px;
 }
 
 .blocklyTreeLabel {
@@ -79,8 +81,8 @@
 .filter-navigator {
   position: absolute;
   z-index: 2;
-  left: 125px;
-  bottom: 8px;
+  left: 151px;
+  bottom: 31px;
 }
 
 .filter-dropdown-content {

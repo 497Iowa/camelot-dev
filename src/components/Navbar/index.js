@@ -7,11 +7,12 @@ NavMenu,
 NavBtn,
 NavBtnLink,
 } from './NavbarElements';
+import './Navbar.css'
 
 const Navbar = () => {
 	return (
 		<>
-			<Nav>
+			{/* <Nav>
 				<Bars />
 
 				<NavMenu>
@@ -22,7 +23,74 @@ const Navbar = () => {
 						Filters
 					</NavLink>
 				</NavMenu>
-			</Nav>
+			</Nav> */}
+			<nav className="navbar" role="navigation" aria-label="main navigation">
+				<div className="navbar-brand">
+					<span className="navbar-item">
+					<img className="camelot-logo-image" src="/img/logo.png" width="62" height="112"/>
+					<h1 className="camelot-logo">CAMELOT</h1>
+					</span>
+
+					<a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					</a>
+				</div>
+
+				<div id="navbarBasicExample" className="navbar-menu">
+					<div className="navbar-start">
+					<NavLink className="navbar-item" to='/create' activeStyle>
+						Create
+					</NavLink>
+					<NavLink className="navbar-item" to='/filters' activeStyle>
+						Filters
+					</NavLink>
+					{/* <a href="/create" className="navbar-item">
+						Home
+					</a>
+
+					<a className="navbar-item">
+						Documentation
+					</a> */}
+
+					{/* <div className="navbar-item has-dropdown is-hoverable">
+						<a className="navbar-link">
+						More
+						</a>
+
+						<div className="navbar-dropdown">
+						<a className="navbar-item">
+							About
+						</a>
+						<a className="navbar-item">
+							Jobs
+						</a>
+						<a className="navbar-item">
+							Contact
+						</a>
+						<hr className="navbar-divider"/>
+						<a className="navbar-item">
+							Report an issue
+						</a>
+						</div>
+					</div> */}
+					</div>
+
+					<div className="navbar-end">
+					{/* <div className="navbar-item">
+						<div className="buttons">
+						<a className="button is-primary">
+							<strong>Sign up</strong>
+						</a>
+						<a className="button is-light">
+							Log in
+						</a>
+						</div>
+					</div> */}
+					</div>
+				</div>
+				</nav>
 		</>
 	);
 };

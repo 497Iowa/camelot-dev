@@ -1,0 +1,10 @@
+.camelot-logo {
+    font-size: 30px;
+    font-family: 'Concert One', cursive;
+    color: black;
+}
+
+.camelot-logo-image {
+    object-fit: contain;
+    max-height: 2.7rem !important;
+}
