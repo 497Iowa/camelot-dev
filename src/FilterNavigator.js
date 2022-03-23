@@ -153,6 +153,15 @@ const FilterNavigator = props => {
     return a.time > b.time
   });
 
+  const filtersDropdownItems = filters.filters.length == 0 ? <></> :
+    <>
+    <div className="dropdown-item dropdown-separator">My Filters</div>
+    {filters.filters.map(e => 
+        <FilterItem filter={e}/>
+      )}
+      <hr className="dropdown-divider"></hr>
+    </>
+
   return (
     <>
       <div className={`dropdown is-up filter-navigator ${dropdown ? "is-active" : ""}`}>
@@ -180,11 +189,7 @@ const FilterNavigator = props => {
         </div>
         <div className="dropdown-menu" id="filter-dropdown-menu" role="menu">
             <div className="dropdown-content filter-dropdown-content">
-                <div className="dropdown-item dropdown-separator">My Filters</div>
-                {filters.filters.map(e => 
-                    <FilterItem filter={e}/>
-                  )}
-                <hr className="dropdown-divider"></hr>
+                {filtersDropdownItems}
                 <div className="dropdown-item dropdown-separator">Built-in Filters</div>
                 {defaultFilters.filters.map(e => 
                     <FilterItem isDefault filter={e}/>

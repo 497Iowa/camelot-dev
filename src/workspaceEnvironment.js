@@ -42,6 +42,7 @@ Caman.Pixel.prototype.putPixelRelative = function (horiz, vert, rgba) {
 };
 
 var _original_img;
+var rgba;
 // var _img_width;
 // var _img_height;
 

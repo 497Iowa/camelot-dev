@@ -46,7 +46,7 @@ Blockly.JavaScript['get_pixel_relative'] = function(block) {
   var x_val = block.getFieldValue('X_VAL');
   var y_val = block.getFieldValue('Y_VAL');
   var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  var code = `colorToHex(getFromOriginal(rgba.locationXY().x + ${x_val}, rgba.locationXY().y - 1 + ${y_val}))`;
+  var code = `(rgba == null ? 0 : colorToHex(getFromOriginal(rgba.locationXY().x + ${x_val}, rgba.locationXY().y - 1 + ${y_val})))`;
   if (value_name == "") code = 0;
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
@@ -65,7 +65,7 @@ Blockly.JavaScript['get_pixel_relative'] = function(block) {
 
 Blockly.JavaScript['get_red_of'] = function(block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-    var code = `(parseInt(${value_name}.slice(1, 3), 16))`;
+    var code = `(${value_name} == null ? 0 : parseInt(${value_name}.slice(1, 3), 16))`;
     if (value_name == "") code = 0;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
@@ -85,7 +85,7 @@ Blockly.JavaScript['get_red_of'] = function(block) {
 
 Blockly.JavaScript['get_green_of'] = function(block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-    var code = `(parseInt(${value_name}.slice(3, 5), 16))`;
+    var code = `(${value_name} == null ? 0 : parseInt(${value_name}.slice(3, 5), 16))`;
     if (value_name == "") code = 0;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
@@ -104,7 +104,7 @@ Blockly.Blocks['get_blue_of'] = {
 
 Blockly.JavaScript['get_blue_of'] = function(block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-    var code = `(parseInt(${value_name}.slice(5, 7), 16))`;
+    var code = `(${value_name} == null ? 0 : parseInt(${value_name}.slice(5, 7), 16))`;
     if (value_name == "") code = 0;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
