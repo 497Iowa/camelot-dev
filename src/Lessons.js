@@ -18,6 +18,17 @@ const Lessons = props => {
     }
   ])
 
+  // const showFile = async (e) => {
+  //   e.preventDefault()
+  //   const reader = new FileReader()
+  //   reader.onload = async (e) => { 
+  //     const text = (e.target.result)
+  //     console.log(text)
+  //     alert(text)
+  //   };
+  //   reader.readAsText(e.target.files[0])
+  // }
+
   const [status, setStatus] = useState ({
     index: 0,
     disabledPrev: true,
@@ -49,18 +60,34 @@ const Lessons = props => {
 
   function Prev(props) {
     return (
-      <button onClick={props.toggle} disabled={props.active}>Previous</button>
+      <button class="button is-small is-outlined" onClick={props.toggle} disabled={props.active}>Previous</button>
     );
   }
   
   function Next(props) {
     return (
-      <button onClick={props.toggle} disabled={props.active}>Next</button>
+      <button class="button is-small is-outlined" onClick={props.toggle} disabled={props.active}>Next</button>
     );
   }
 
   return (
-    <div className={styles.box}>
+    <div class="block"> 
+      <article class="message">
+      <div class="message-header">
+        <p>{lessonText[status.index].title}</p>
+      </div>
+      <div class="message-body">
+        <p>
+        {lessonText[status.index].text}
+        </p>
+        <div>
+          <Prev toggle={(e) => togglePrev(e)} active={status.disabledPrev} />
+          <Next toggle={(e) => toggleNext(e)} active={status.disabledNext} />
+        </div>
+      </div>
+    </article>
+
+    {/* <div className={styles.box}>
       <h1 className={styles.title}>{lessonText[status.index].title}</h1>
       <p>
       {lessonText[status.index].text}
@@ -69,6 +96,7 @@ const Lessons = props => {
         <Prev toggle={(e) => togglePrev(e)} active={status.disabledPrev} />
         <Next toggle={(e) => toggleNext(e)} active={status.disabledNext} />
       </div>
+    </div> */}
     </div>
   );
 };
