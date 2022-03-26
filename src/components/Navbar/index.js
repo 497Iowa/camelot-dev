@@ -40,6 +40,9 @@ const Navbar = () => {
 
 				<div id="navbarBasicExample" className="navbar-menu">
 					<div className="navbar-start">
+					<NavLink className="navbar-item" to='/' activeStyle>
+						Home
+					</NavLink>
 					<NavLink className="navbar-item" to='/create' activeStyle>
 						Create
 					</NavLink>
