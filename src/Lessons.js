@@ -1,22 +1,24 @@
 import React, { useState} from "react";
 import styles from "./Lessons.module.css"
 // import {Text, StyleSheet} from "react-native";
+import lessonData from './Lessons.json'
 
 const Lessons = props => {
-  const [lessonText, setLessonTest] = useState([
-    {
-      title: "Lesson 1",
-      text: "To get started, you should know that images are made up of pixels.",
-    },
-    {
-      title: "Lesson 2",
-      text: "Now, we're going to try building a basic block with a for loop.",
-    },
-    {
-      title: "Lesson 3",
-      text: "Let's introduce you to if statements.",
-    }
-  ])
+  // const [lessonText, setLessonTest] = useState([
+  //   {
+  //     title: "Lesson 1",
+  //     text: "To get started, you should know that images are made up of pixels.",
+  //   },
+  //   {
+  //     title: "Lesson 2",
+  //     text: "Now, we're going to try building a basic block with a for loop.",
+  //   },
+  //   {
+  //     title: "Lesson 3",
+  //     text: "Let's introduce you to if statements.",
+  //   }
+  // ])
+  const [lessonText, setLessonTest] = useState(lessonData)
 
   // const showFile = async (e) => {
   //   e.preventDefault()
