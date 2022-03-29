@@ -7,6 +7,9 @@ import {workspaceRunner, workspaceEnvironment} from "../workspaceEnvironment"
 import defaultWorkspace from "../defaultWorkspace";
 import Lessons from "../Lessons";
 import FilterNavigator from "../FilterNavigator";
+import UploadImage from "../components/Core/UploadImage"
+import BuiltInImageDropdown from "../components/Core/BuiltInImageDropdown";
+import ImageHarness from "../components/Core/ImageHarness";
 
 export default function Create() {
   const [xml, setXml] = useState("");
@@ -36,11 +39,6 @@ export default function Create() {
     setDirty(false);
     workspace.clear();
     Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(_xml), workspace)
-  }
-
-  const switchImage = () => {
-    document.querySelector('#test-canvas').removeAttribute('data-caman-id');
-    eval(`loadImage("../iowa.jpg")`);
   }
 
   function runCode(code) {
@@ -112,8 +110,7 @@ export default function Create() {
           ></textarea>
           <button className="button" onClick={() => {navigator.clipboard.writeText(JSON.stringify({xml: xml}))}}>Copy Filter JSON</button>
           <button className="button" onClick={() => runCode(javascriptCode)}>Run Code</button>
-          <button className="button" onClick={switchImage}>Iowa Mode</button>
-          <canvas id="test-canvas"></canvas>
+          <ImageHarness></ImageHarness>
         </div>
         
         

@@ -102,3 +102,15 @@
 html {
   overflow: hidden;
 }
+
+.thumbnail {
+  width: 48px !important;
+  height: 48px !important;
+  object-fit: cover;
+  margin-right: 6px;
+}
+
+.block {
+  margin: 20px !important;
+  margin-top: 5px !important;
+}
