@@ -153,7 +153,7 @@ const FilterNavigator = props => {
     return a.time > b.time
   });
 
-  const filtersDropdownItems = filters.filters.length == 0 ? <></> :
+  const filtersDropdownItems = filters.filters.length === 0 ? <></> :
     <>
     <div className="dropdown-item dropdown-separator">My Filters</div>
     {filters.filters.map(e => 

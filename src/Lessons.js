@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import styles from "./Lessons.module.css"
+// import styles from "./Lessons.module.css"
 // import {Text, StyleSheet} from "react-native";
 import lessonData from './Lessons.json'
 
@@ -18,7 +18,7 @@ const Lessons = props => {
   //     text: "Let's introduce you to if statements.",
   //   }
   // ])
-  const [lessonText, setLessonTest] = useState(lessonData)
+  const [lessonText] = useState(lessonData)
 
   // const showFile = async (e) => {
   //   e.preventDefault()

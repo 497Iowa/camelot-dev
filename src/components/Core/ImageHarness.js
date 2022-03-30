@@ -29,8 +29,8 @@ const ImageHarness = props => {
         </div>
         <button className="mx-auto reset-btn button" onClick={resetImage}>
           <span>Reset</span>
-            <span class="icon is-small">
-            <i class="fas fa-eraser"></i>
+            <span className="icon is-small">
+            <i className="fas fa-eraser"></i>
           </span>
         </button>
         

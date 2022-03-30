@@ -40,13 +40,13 @@ const Navbar = () => {
 
 				<div id="navbarBasicExample" className="navbar-menu">
 					<div className="navbar-start">
-					<NavLink className="navbar-item" to='/' activeStyle>
+					<NavLink className="navbar-item" to='/'>
 						Home
 					</NavLink>
-					<NavLink className="navbar-item" to='/create' activeStyle>
+					<NavLink className="navbar-item" to='/create'>
 						Create
 					</NavLink>
-					<NavLink className="navbar-item" to='/filters' activeStyle>
+					<NavLink className="navbar-item" to='/filters'>
 						Filters
 					</NavLink>
 					{/* <a href="/create" className="navbar-item">

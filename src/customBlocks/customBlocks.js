@@ -47,7 +47,7 @@ Blockly.JavaScript['get_pixel_relative'] = function(block) {
   var y_val = block.getFieldValue('Y_VAL');
   var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
   var code = `(rgba == null ? 0 : colorToHex(getFromOriginal(rgba.locationXY().x + ${x_val}, rgba.locationXY().y - 1 + ${y_val})))`;
-  if (value_name == "") code = 0;
+  if (value_name === "") code = 0;
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
@@ -66,7 +66,7 @@ Blockly.JavaScript['get_pixel_relative'] = function(block) {
 Blockly.JavaScript['get_red_of'] = function(block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
     var code = `(${value_name} == null ? 0 : parseInt(${value_name}.slice(1, 3), 16))`;
-    if (value_name == "") code = 0;
+    if (value_name === "") code = 0;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
@@ -86,7 +86,7 @@ Blockly.JavaScript['get_red_of'] = function(block) {
 Blockly.JavaScript['get_green_of'] = function(block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
     var code = `(${value_name} == null ? 0 : parseInt(${value_name}.slice(3, 5), 16))`;
-    if (value_name == "") code = 0;
+    if (value_name === "") code = 0;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
@@ -105,7 +105,7 @@ Blockly.Blocks['get_blue_of'] = {
 Blockly.JavaScript['get_blue_of'] = function(block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
     var code = `(${value_name} == null ? 0 : parseInt(${value_name}.slice(5, 7), 16))`;
-    if (value_name == "") code = 0;
+    if (value_name === "") code = 0;
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
@@ -139,7 +139,7 @@ Blockly.Blocks['for_each_pixel'] = {
 
 Blockly.JavaScript['for_each_pixel'] = function(block) {
     var variable0  = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('PIXEL_VAR'), Blockly.Variables.NAME_TYPE);
-    var value_pixel = Blockly.JavaScript.valueToCode(block, 'Pixel', Blockly.JavaScript.ORDER_ATOMIC);
+    //var value_pixel = Blockly.JavaScript.valueToCode(block, 'Pixel', Blockly.JavaScript.ORDER_ATOMIC);
     let branch = Blockly.JavaScript.statementToCode(block, 'Loop');
     
     let code = '';

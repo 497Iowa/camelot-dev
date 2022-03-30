@@ -23,16 +23,16 @@ const FilterSelector = props => {
         }
 
         return (
-            <div class="card mb-2">
-            <header class="card-header">
-                <p class="card-header-title">
+            <div className="card mb-2">
+            <header className="card-header">
+                <p className="card-header-title">
                 {filterProps.filter.name}
                 </p>
-                <div class="card-header-icon" aria-label="more options">
-                <button class="button is-success" onClick={onApplyClicked}>
+                <div className="card-header-icon" aria-label="more options">
+                <button className="button is-success" onClick={onApplyClicked}>
                     <span>Apply</span>
-                        <span class="icon is-small">
-                        <i class="fas fa-wand-magic-sparkles"></i>
+                        <span className="icon is-small">
+                        <i className="fas fa-wand-magic-sparkles"></i>
                         </span>
                     </button>
                 </div>
@@ -47,7 +47,7 @@ const FilterSelector = props => {
         <h1>Built-In Filters</h1>
     </div>
         {defaultFilters.filters.map(e => 
-                    <FilterItem filter={e}/>
+                    <FilterItem key={e.name} filter={e}/>
                   )}
                   
     
