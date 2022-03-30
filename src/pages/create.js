@@ -52,7 +52,7 @@ export default function Create() {
 
   return (
     <> 
-      <div className="is-flex">
+      <div className="is-flex create">
         <div className="blockly-column is-flex is-flex-grow-1 is-flex-direction-column">
           <Lessons />
           <FilterNavigator

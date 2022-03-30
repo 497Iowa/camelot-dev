@@ -49,8 +49,12 @@ const FilterSelector = props => {
         {defaultFilters.filters.map(e => 
                     <FilterItem key={e.name} filter={e}/>
                   )}
-                  
-    
+    <div className="content mt-5">
+        <h1>Custom Filters</h1>
+    </div>             
+    {filters.filters.map(e => 
+                    <FilterItem key={e.name} filter={e}/>
+                  )}
         
     </>
   );
