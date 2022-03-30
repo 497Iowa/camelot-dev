@@ -69,11 +69,17 @@ Caman("#test-canvas", function () {
     this.storeOriginalImg();
     this.currentFilter().render()
 });
-  
-  
+`
+
+const workspaceRunnerPersist = `
+Caman("#test-canvas", function () {
+    this.storeOriginalImg();
+    this.currentFilter().render()
+});
 `
 
 module.exports = {
     workspaceEnvironment,
-    workspaceRunner
+    workspaceRunner,
+    workspaceRunnerPersist
 }

@@ -13,4 +13,4 @@ function loadImage(image_path) {
 });
 }
 
-loadImage("../wp.jpg");
+// loadImage("../wp.jpg");
