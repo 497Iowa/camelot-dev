@@ -124,6 +124,11 @@
   display: block;
 }
 
+.run-btn {
+  width: 140px;
+  display: block;
+}
+
 .canvas-cntr {
   position: relative;
   height: 300px;
@@ -133,8 +138,11 @@
   position: absolute;
   width: 500px;
   height: 300px;
-  top: 0px;
-  left: 150px;
+  margin: auto;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
   background: rgba(0.5, 0.5, 0.5, 0.3);
 }
 
@@ -145,4 +153,13 @@
 
 .overlay-hidden {
   visibility:hidden;
+}
+/* 
+.filters-column {
+  height: 700px;
+  overflow-y: scroll;
+} */
+
+.harness-fixed {
+  position: fixed;
 }

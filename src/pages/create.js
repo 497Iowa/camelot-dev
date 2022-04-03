@@ -17,6 +17,11 @@ export default function Create() {
   const [javascriptCode, setJavascriptCode] = useState("");
   const [workspace, setWorkspace] = useState(null);
   const [dirty, setDirty] = useState(false);
+  const [filterLoading, setFilterLoading] = useState(true);
+
+  useEffect(() => {
+    window.renderFinished = [() => setFilterLoading(false)];
+  }, []);
 
   function workspaceDidChange(_workspace) {
     if (workspace === null) setWorkspace(_workspace);
@@ -42,7 +47,9 @@ export default function Create() {
   }
 
   function runCode(code) {
+    setFilterLoading(true); 
     try {
+      window.renderFinished = [() => setFilterLoading(false)];
       eval(code);
     } catch (e) {
       alert(e);
@@ -109,8 +116,11 @@ export default function Create() {
             readOnly
           ></textarea>
           <button className="button" onClick={() => {navigator.clipboard.writeText(JSON.stringify({xml: xml}))}}>Copy Filter JSON</button>
-          <button className="button" onClick={() => runCode(javascriptCode)}>Run Code</button>
-          <ImageHarness></ImageHarness>
+          <ImageHarness
+            loading={filterLoading}
+            showRunButton
+            onRunClick={() => {runCode(javascriptCode)}}
+          ></ImageHarness>
         </div>
         
         

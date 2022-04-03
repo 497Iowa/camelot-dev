@@ -26,6 +26,10 @@
     background-image: url("icons/custom.png")
 }
 
+.navbar-padding {
+    padding-top: 4rem;
+}
+
 /* https://markodenic.com/tools/buttons-generator/ */
 /* .button {
     min-width: 130px;

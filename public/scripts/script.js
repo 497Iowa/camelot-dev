@@ -17,6 +17,8 @@ function loadImage(image_path) {
 
 Caman.Event.listen("renderFinished", function (job) {
   //console.log(renderFinished);
+  initialRenderFinished = true;
+  
   if (renderFinished !== null) {
     for (var i = 0; i < renderFinished.length; i++) {
       var f = renderFinished[i];
@@ -28,5 +30,6 @@ Caman.Event.listen("renderFinished", function (job) {
   // if (renderFinished2 !== undefined) renderFinished2();
 });
 
-var renderFinished = [];
+var initialRenderFinished = false;
+var renderFinished = [() => {initialRenderFinished = true;}];
 // loadImage("../wp.jpg");

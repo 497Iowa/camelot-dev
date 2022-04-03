@@ -24,7 +24,7 @@ const Navbar = () => {
 					</NavLink>
 				</NavMenu>
 			</Nav> */}
-			<nav className="navbar" role="navigation" aria-label="main navigation">
+			<nav className="navbar is-fixed-top" role="navigation" aria-label="main navigation">
 				<div className="navbar-brand">
 					<span className="navbar-item">
 					<img className="camelot-logo-image" src="/img/logo.png" width="62" height="112"/>

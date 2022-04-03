@@ -32,12 +32,23 @@ const Filters = () => {
   }
 
   return (
-    <div className="container filter-container">
-      <ImageHarness loading={filterLoading}/>
-      <FilterSelector
-        setXml={applyFilter}
-        filterLoading={filterLoading}
-      ></FilterSelector>
+    <div className="container">
+      <div className="columns">
+        <div className="column">
+          <div className="harness-fixed my-5">
+          <ImageHarness loading={filterLoading}/>
+          </div>
+          
+        </div>
+        <div className="column filters-column">
+          <FilterSelector
+            setXml={applyFilter}
+            filterLoading={filterLoading}
+          ></FilterSelector>
+        </div>
+      </div>
+      
+      
     </div>
   );
 };

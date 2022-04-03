@@ -5,26 +5,36 @@ import UploadImage from "./UploadImage";
 const ImageHarness = props => {
 
   const [img, setImg] = useState("")
+  const [switching, setSwitching] = useState(false);
 
   useEffect(() => {
-    switchImage("../wp.jpg");
+    switchImage("../wp.jpg", true);
   }, []);
 
-  const switchImage = (url) => {
+  const switchImage = (url, disableSwitching = false) => {
+    if (!disableSwitching) setSwitching(true);
+    window.renderFinished = [() => {console.log("asdf")}, () => setSwitching(false)];
     setImg(url);
     document.querySelector('#test-canvas').removeAttribute('data-caman-id');
-    eval(`loadImage("${url}")`);
+    window.loadImage(url);
   }
   
   const resetImage = () => {
     switchImage(img);
   }
+  
+  const runButton = props.showRunButton ? <button className={`mx-1 run-btn button is-success ${props.loading ? "is-loading" : ""}`} onClick={props.onRunClick}>
+    <span>Run Filter</span>
+      <span className="icon is-small">
+      <i className="fas fa-play"></i>
+    </span>
+  </button> : <></>
 
   return (
     <>
         <div className="canvas-cntr">
           <canvas className="mx-auto is-block" id="test-canvas"></canvas>
-          <div className={`canvas-overlay is-flex is-justify-content-center is-align-items-center ${!props.loading ? "overlay-hidden" : ""}`}>
+          <div className={`canvas-overlay is-flex is-justify-content-center is-align-items-center ${!props.loading && !switching ? "overlay-hidden" : ""}`}>
             <span className="loading-icon icon is-large">
               <i className="fas fa-cog fa-spin"></i>
             </span>
@@ -35,12 +45,16 @@ const ImageHarness = props => {
           <BuiltInImageDropdown onChange={(e) => switchImage(e)}></BuiltInImageDropdown>
           <UploadImage onChange={(e) =>switchImage(e)}></UploadImage>
         </div>
-        <button className="mx-auto reset-btn button" onClick={resetImage}>
+        <div className="m-2 is-flex is-justify-content-center">
+        {runButton}
+        <button className="mx-1 reset-btn button" onClick={resetImage}>
           <span>Reset</span>
             <span className="icon is-small">
             <i className="fas fa-eraser"></i>
           </span>
         </button>
+        </div>
+       
         
         
     </>
