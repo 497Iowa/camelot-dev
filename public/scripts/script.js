@@ -1,6 +1,8 @@
 var _img_width = 500;
 var _img_height = 300;
 
+var filterRunning = true;
+
 function loadImage(image_path) {
   Caman("#test-canvas", image_path, function () {
     this.revert();
@@ -13,4 +15,18 @@ function loadImage(image_path) {
 });
 }
 
+Caman.Event.listen("renderFinished", function (job) {
+  //console.log(renderFinished);
+  if (renderFinished !== null) {
+    for (var i = 0; i < renderFinished.length; i++) {
+      var f = renderFinished[i];
+      if (f !== undefined) f();
+    }
+
+  }
+  // if (renderFinished !== undefined) renderFinished();
+  // if (renderFinished2 !== undefined) renderFinished2();
+});
+
+var renderFinished = [];
 // loadImage("../wp.jpg");

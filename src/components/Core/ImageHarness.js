@@ -22,7 +22,15 @@ const ImageHarness = props => {
 
   return (
     <>
-        <canvas className="mx-auto is-block" id="test-canvas"></canvas>
+        <div className="canvas-cntr">
+          <canvas className="mx-auto is-block" id="test-canvas"></canvas>
+          <div className={`canvas-overlay is-flex is-justify-content-center is-align-items-center ${!props.loading ? "overlay-hidden" : ""}`}>
+            <span className="loading-icon icon is-large">
+              <i className="fas fa-cog fa-spin"></i>
+            </span>
+          </div>
+        </div>
+        
         <div className="m-2 is-flex is-justify-content-center">
           <BuiltInImageDropdown onChange={(e) => switchImage(e)}></BuiltInImageDropdown>
           <UploadImage onChange={(e) =>switchImage(e)}></UploadImage>

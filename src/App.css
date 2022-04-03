@@ -123,3 +123,26 @@
   width: 100px;
   display: block;
 }
+
+.canvas-cntr {
+  position: relative;
+  height: 300px;
+}
+
+.canvas-ctr canvas, .canvas-overlay {
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  top: 0px;
+  left: 150px;
+  background: rgba(0.5, 0.5, 0.5, 0.3);
+}
+
+.loading-icon {
+  font-size: 4em;
+  color: #ccc;
+}
+
+.overlay-hidden {
+  visibility:hidden;
+}

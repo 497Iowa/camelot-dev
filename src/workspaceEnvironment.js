@@ -60,7 +60,6 @@ Caman.Filter.register("storeOriginalImg", function () {
     return this;
 });
 
-
 `
 
 const workspaceRunner = `
@@ -74,8 +73,9 @@ Caman("#test-canvas", function () {
 const workspaceRunnerPersist = `
 Caman("#test-canvas", function () {
     this.storeOriginalImg();
-    this.currentFilter().render()
+    this.currentFilter().render();
 });
+
 `
 
 module.exports = {
