@@ -63,6 +63,43 @@ Blockly.JavaScript['get_pixel_relative'] = function(block) {
     }
 };
 
+// Blockly.Blocks['get_color_pixel_relative'] = {
+//   init: function() {
+//     this.appendValueInput("NAME")
+//       .setCheck(null)
+//       .appendField("get color of pixel")
+//       .appendField(new Blockly.FieldNumber(0), "X_VAL")
+//       .appendField("right and")
+//       .appendField(new Blockly.FieldNumber(0), "Y_VAL")
+//       .appendField("up");
+//       this.setOutput(true, null);
+//       this.setColour(20);
+//   this.setTooltip("");
+//   this.setHelpUrl("");
+//   }
+// };
+
+// Blockly.JavaScript['get_color_pixel_relative'] = function(block) {
+// var x_val = block.getFieldValue('X_VAL');
+// var y_val = block.getFieldValue('Y_VAL');
+// var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+// var code = `(rgba == null ? 0 : colorToHex(getFromOriginal(rgba.locationXY().x + ${x_val}, rgba.locationXY().y - 1 + ${y_val})))`;
+// if (value_name === "") code = 0;
+// return [code, Blockly.JavaScript.ORDER_ATOMIC];
+// };
+
+Blockly.Blocks['get_red_of'] = {
+  init: function() {
+      this.appendValueInput("NAME")
+          .setCheck("Pixel")
+          .appendField("get red of");
+      this.setOutput(true, null);
+      this.setColour(0);
+  this.setTooltip("");
+  this.setHelpUrl("");
+  }
+};
+
 Blockly.JavaScript['get_red_of'] = function(block) {
     var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
     var code = `(${value_name} == null ? 0 : parseInt(${value_name}.slice(1, 3), 16))`;
@@ -189,3 +226,91 @@ Blockly.JavaScript['colour_rgb'] = function(block) {
     const code = functionName + '(' + red + ', ' + green + ', ' + blue + ')';
     return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
   };
+
+  Blockly.Blocks['color_with_hsv'] = {
+    init: function() {
+      this.appendValueInput("hue")
+          .setCheck(null)
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("color with hue");
+      this.appendValueInput("saturation")
+          .setCheck(null)
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("saturation");
+      this.appendValueInput("brightness")
+          .setCheck(null)
+          .setAlign(Blockly.ALIGN_RIGHT)
+          .appendField("brightness");
+      this.setOutput(true, null);
+      this.setColour(20);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+  };
+
+  Blockly.JavaScript['color_with_hsv'] = function(block) {
+    var value_hue = Blockly.JavaScript.valueToCode(block, 'hue', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_saturation = Blockly.JavaScript.valueToCode(block, 'saturation', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_brightness = Blockly.JavaScript.valueToCode(block, 'brightness', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = `colorToHex(hsv2rgb({h: ${value_hue}, s: ${value_saturation} / 100.0, v: ${value_brightness} / 100.0}))`;
+    return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+  };
+
+Blockly.Blocks['get_hue_of'] = {
+  init: function() {
+      this.appendValueInput("NAME")
+          .setCheck("Pixel")
+          .appendField("get hue of");
+      this.setOutput(true, null);
+      this.setColour(170);
+  this.setTooltip("");
+  this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['get_hue_of'] = function(block) {
+    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = `(${value_name} == null ? 0 : rgb2hsv(hexToColor(${value_name})).h)`;
+    if (value_name === "") code = 0;
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.Blocks['get_saturation_of'] = {
+  init: function() {
+      this.appendValueInput("NAME")
+          .setCheck("Pixel")
+          .appendField("get saturation of");
+      this.setOutput(true, null);
+      this.setColour(170);
+  this.setTooltip("");
+  this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['get_saturation_of'] = function(block) {
+    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = `(${value_name} == null ? 0 : rgb2hsv(hexToColor(${value_name})).s * 100)`;
+    if (value_name === "") code = 0;
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.Blocks['get_brightness_of'] = {
+  init: function() {
+      this.appendValueInput("NAME")
+          .setCheck("Pixel")
+          .appendField("get brightness of");
+      this.setOutput(true, null);
+      this.setColour(170);
+  this.setTooltip("");
+  this.setHelpUrl("");
+  }
+};
+
+Blockly.JavaScript['get_brightness_of'] = function(block) {
+    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+    var code = `(${value_name} == null ? 0 : rgb2hsv(hexToColor(${value_name})).v * 100)`;
+    if (value_name === "") code = 0;
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+

@@ -21,6 +21,23 @@ const toolboxConfig = `<xml id="toolbox" style="display: none">
 </shadow>
 </value>
 </block>
+<block type="color_with_hsv">
+<value name="hue">
+<shadow type="math_number">
+<field name="NUM">100</field>
+</shadow>
+</value>
+<value name="saturation">
+<shadow type="math_number">
+<field name="NUM">50</field>
+</shadow>
+</value>
+<value name="brightness">
+<shadow type="math_number">
+<field name="NUM">50</field>
+</shadow>
+</value>
+</block>
 <block type="colour_blend">
 <value name="COLOUR1">
 <shadow type="colour_picker">
@@ -43,10 +60,13 @@ const toolboxConfig = `<xml id="toolbox" style="display: none">
 <block type="for_each_pixel">
 <field name="PIXEL_VAR" id="tC?+]3-pPk3|!aUyg,@+">pixel</field>
 </block>
+<block type="get_pixel_relative"/>
 <block type="get_red_of"/>
 <block type="get_green_of"/>
 <block type="get_blue_of"/>
-<block type="get_pixel_relative"/>
+<block type="get_hue_of"/>
+<block type="get_saturation_of"/>
+<block type="get_brightness_of"/>
 </category>
 <category name="Logic" colour="#5b80a5">
 <block type="controls_if"/>

@@ -53,6 +53,7 @@ const FilterNavigator = props => {
     } else {
       let newFilters = filters.filters;
       newFilters.push({name: filterInput, time: Date.now(), xml: props.xml});
+      props.setXml(props.xml);
       setFilters({ ...filters, filters: newFilters });
       updateFiltersInStorage({ ...filters, filters: newFilters });
     }

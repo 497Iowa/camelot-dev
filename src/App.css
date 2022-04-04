@@ -161,5 +161,6 @@
 } */
 
 .harness-fixed {
+  width: 500px;
   position: fixed;
 }
