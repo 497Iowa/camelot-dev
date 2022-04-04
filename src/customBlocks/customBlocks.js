@@ -36,7 +36,7 @@ Blockly.Blocks['variables_get_pixel'] = {
         .appendField(new Blockly.FieldNumber(0), "Y_VAL")
         .appendField("up");
         this.setOutput(true, null);
-        this.setColour(330);
+        this.setColour(170);
     this.setTooltip("");
     this.setHelpUrl("");
     }
@@ -57,7 +57,7 @@ Blockly.JavaScript['get_pixel_relative'] = function(block) {
             .setCheck("Pixel")
             .appendField("get red of");
         this.setOutput(true, null);
-        this.setColour(330);
+        this.setColour(0);
     this.setTooltip("");
     this.setHelpUrl("");
     }
@@ -77,7 +77,7 @@ Blockly.JavaScript['get_red_of'] = function(block) {
             .setCheck("Pixel")
             .appendField("get green of");
         this.setOutput(true, null);
-        this.setColour(330);
+        this.setColour(130);
     this.setTooltip("");
     this.setHelpUrl("");
     }
@@ -96,7 +96,7 @@ Blockly.Blocks['get_blue_of'] = {
             .setCheck("Pixel")
             .appendField("get blue of");
         this.setOutput(true, null);
-        this.setColour(330);
+        this.setColour(240);
     this.setTooltip("");
     this.setHelpUrl("");
     }
@@ -129,7 +129,7 @@ Blockly.Blocks['for_each_pixel'] = {
               }
             ],
             'inputsInline': true,
-            "colour": 230,
+            "colour": 170,
             "tooltip": "Does something for each pixel in the image.",
             "helpUrl": ""
           })

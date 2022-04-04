@@ -39,6 +39,15 @@ const toolboxConfig = `<xml id="toolbox" style="display: none">
 </value>
 </block>
 </category>
+<category name="Pixels" colour="#f0b81f">
+<block type="for_each_pixel">
+<field name="PIXEL_VAR" id="tC?+]3-pPk3|!aUyg,@+">pixel</field>
+</block>
+<block type="get_red_of"/>
+<block type="get_green_of"/>
+<block type="get_blue_of"/>
+<block type="get_pixel_relative"/>
+</category>
 <category name="Logic" colour="#5b80a5">
 <block type="controls_if"/>
 <block type="logic_compare">
@@ -197,15 +206,6 @@ const toolboxConfig = `<xml id="toolbox" style="display: none">
 <block type="variables_set_pixel"/>
 </category>
 <category name="Functions" colour="#995ba5" custom="PROCEDURE"/>
-<category name="Custom" colour="#000000">
-<block type="for_each_pixel">
-<field name="PIXEL_VAR" id="tC?+]3-pPk3|!aUyg,@+">pixel</field>
-</block>
-<block type="get_red_of"/>
-<block type="get_green_of"/>
-<block type="get_blue_of"/>
-<block type="get_pixel_relative"/>
-</category>
 </xml>`
 
 export default toolboxConfig;

@@ -3,28 +3,30 @@
 }
 
 .blocklyToolboxCategory:nth-child(2) .blocklyTreeIcon {
+    background-image: url("icons/pixel.png")
+}
+
+
+.blocklyToolboxCategory:nth-child(3) .blocklyTreeIcon {
     background-image: url("icons/logic.png")
 }
 
-.blocklyToolboxCategory:nth-child(3) .blocklyTreeIcon {
+.blocklyToolboxCategory:nth-child(4) .blocklyTreeIcon {
     background-image: url("icons/loops.png")
 }
 
-.blocklyToolboxCategory:nth-child(4) .blocklyTreeIcon {
+.blocklyToolboxCategory:nth-child(5) .blocklyTreeIcon {
     background-image: url("icons/math.png")
 }
 
-.blocklyToolboxCategory:nth-child(5) .blocklyTreeIcon {
+.blocklyToolboxCategory:nth-child(6) .blocklyTreeIcon {
     background-image: url("icons/variables.png")
 }
 
-.blocklyToolboxCategory:nth-child(6) .blocklyTreeIcon {
+.blocklyToolboxCategory:nth-child(7) .blocklyTreeIcon {
     background-image: url("icons/functions.png")
 }
 
-.blocklyToolboxCategory:nth-child(7) .blocklyTreeIcon {
-    background-image: url("icons/custom.png")
-}
 
 .navbar-padding {
     padding-top: 4rem;
