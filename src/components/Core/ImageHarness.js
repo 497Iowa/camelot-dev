@@ -22,6 +22,13 @@ const ImageHarness = props => {
   const resetImage = () => {
     switchImage(img);
   }
+
+  const downloadCanvas = () => {
+    var link = document.createElement('a');
+    link.download = 'output.png';
+    link.href = document.getElementById('test-canvas').toDataURL()
+    link.click();
+  }
   
   const runButton = props.showRunButton ? <button className={`mx-1 run-btn button is-success ${props.loading ? "is-loading" : ""}`} onClick={props.onRunClick}>
     <span>Run Filter</span>
@@ -51,6 +58,11 @@ const ImageHarness = props => {
           <span>Reset</span>
             <span className="icon is-small">
             <i className="fas fa-eraser"></i>
+          </span>
+        </button>
+        <button class="button" onClick={downloadCanvas}>
+          <span class="icon is-small">
+            <i class="fas fa-download"></i>
           </span>
         </button>
         </div>
