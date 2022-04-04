@@ -156,7 +156,7 @@ const FilterNavigator = props => {
 
   const filtersDropdownItems = filters.filters.length === 0 ? <></> :
     <>
-    <div className="dropdown-item dropdown-separator">My Filters</div>
+    <div className="dropdown-item dropdown-separator">Your Filters</div>
     {filters.filters.map(e => 
         <FilterItem filter={e}/>
       )}

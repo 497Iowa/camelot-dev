@@ -64,7 +64,7 @@ const FilterSelector = props => {
                       setXml={props.setXml} filterLoading={props.filterLoading}/>
                   )}
     <div className="content mt-5">
-        <h1>Custom Filters</h1>
+        <h1>Your Filters</h1>
     </div>             
     {filters.filters.map(e => 
                     <FilterItem key={e.name} filter={e}
