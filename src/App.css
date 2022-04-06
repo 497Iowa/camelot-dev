@@ -9,7 +9,7 @@
 }
 
 .blocklyTreeRow {
-  padding-bottom: 4px;
+  padding-bottom: 26px;
   border-radius: 6px;
 }
 
@@ -80,7 +80,7 @@
 
 .filter-navigator {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   left: 151px;
   bottom: 31px;
 }
