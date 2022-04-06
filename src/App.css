@@ -1,5 +1,5 @@
 .fill-height {
-  height: calc(100vh - 248px);
+  height: calc(100vh - 350px);
   margin: 20px;
   margin-top: 0px;
 }
@@ -71,7 +71,8 @@
 }
 
 .preview-column {
-  width: 500px;
+  width: 500px !important;
+  flex-shrink: 0;
 }
 
 .blockly-column {
@@ -163,4 +164,23 @@
 .harness-fixed {
   width: 500px;
   position: fixed;
+}
+
+.lessons-msg-block {
+  max-height: 234px;
+  min-height: 234px;
+}
+
+.lessons-msg {
+  max-height: 234px;
+  min-height: 234px;
+  overflow-y: scroll;
+}
+
+.lessons-msg-body {
+  padding: 1em 1.25em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 190px;
 }

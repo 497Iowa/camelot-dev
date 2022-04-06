@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 // import styles from "./Lessons.module.css"
 // import {Text, StyleSheet} from "react-native";
-import lessonData from './Lessons.json'
+import data from './LessonData'
 
 const Lessons = props => {
   // const [lessonText, setLessonTest] = useState([
@@ -18,7 +18,7 @@ const Lessons = props => {
   //     text: "Let's introduce you to if statements.",
   //   }
   // ])
-  const [lessonText] = useState(lessonData)
+  const [lessonText] = useState(data)
 
   // const showFile = async (e) => {
   //   e.preventDefault()
@@ -73,15 +73,16 @@ const Lessons = props => {
   }
 
   return (
-    <div class="block"> 
-      <article class="message">
+    <div class="block lessons-msg-block"> 
+      <article class="message lessons-msg">
       <div class="message-header">
         <p>{lessonText[status.index].title}</p>
       </div>
-      <div class="message-body">
-        <p>
-        {lessonText[status.index].text}
-        </p>
+      <div class="message-body lessons-msg-body">
+        <div>
+          {lessonText[status.index].text}
+        </div>
+        
         <div>
           <Prev toggle={(e) => togglePrev(e)} active={status.disabledPrev} />
           <Next toggle={(e) => toggleNext(e)} active={status.disabledNext} />
