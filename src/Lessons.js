@@ -79,7 +79,7 @@ const Lessons = props => {
         <p>{lessonText[status.index].title}</p>
       </div>
       <div class="message-body lessons-msg-body">
-        <div>
+        <div className="content">
           {lessonText[status.index].text}
         </div>
         
