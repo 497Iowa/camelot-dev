@@ -36,8 +36,13 @@ const Lessons = props => {
     disabledPrev: true,
     disabledNext: false
   })
+  
+  const resetScroll = () => {
+    document.getElementById('lessons-msg-body').scrollTop = 0;
+  }
 
   const togglePrev = (e) => {
+    resetScroll();
     console.log(status)
     let index = status.index - 1;
     let disabledPrev = (index === 0);
@@ -50,6 +55,7 @@ const Lessons = props => {
   }
 
   const toggleNext = (e) => {
+    resetScroll();
     let index = status.index + 1;
     let disabledNext = index === (lessonText.length - 1);
 
@@ -72,13 +78,16 @@ const Lessons = props => {
     );
   }
 
+  var showLoadBtn = lessonText[status.index].hasOwnProperty('xml');
+
   return (
     <div class="block lessons-msg-block"> 
-      <article class="message lessons-msg">
-      <div class="message-header">
-        <p>{lessonText[status.index].title}</p>
+      <div class="message lessons-msg">
+      <div class="message-header is-flex is-justify-content-space-between">
+        <p className="msg-p">{lessonText[status.index].title}</p>
+        <button className={`button load-btn is-info ${showLoadBtn ? "" : "is-hidden"}`} onClick={() => {props.setXml(lessonText[status.index].xml)}}>Load Starter Material</button>
       </div>
-      <div class="message-body lessons-msg-body">
+      <div class="message-body lessons-msg-body" id="lessons-msg-body">
         <div className="content">
           {lessonText[status.index].text}
         </div>
@@ -88,7 +97,7 @@ const Lessons = props => {
           <Next toggle={(e) => toggleNext(e)} active={status.disabledNext} />
         </div>
       </div>
-    </article>
+    </div>
 
     {/* <div className={styles.box}>
       <h1 className={styles.title}>{lessonText[status.index].title}</h1>

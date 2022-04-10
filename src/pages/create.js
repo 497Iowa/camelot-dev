@@ -20,6 +20,7 @@ export default function Create() {
   const [filterLoading, setFilterLoading] = useState(true);
 
   useEffect(() => {
+    document.body.parentElement.style.overflowY = "hidden";
     window.renderFinished = [() => setFilterLoading(false)];
   }, []);
 
@@ -61,7 +62,7 @@ export default function Create() {
     <> 
       <div className="is-flex create">
         <div className="blockly-column is-flex is-flex-grow-1 is-flex-direction-column">
-          <Lessons />
+          <Lessons setXml={loadXml} />
           <FilterNavigator
             xml={xml}
             setXml={loadXml}
@@ -108,14 +109,14 @@ export default function Create() {
           onXmlChange={onXmlChange}
           />
         </div>
-        <div className="preview-column is-flex is-flex-direction-column">
-          <textarea
+        <div className="preview-column is-flex is-flex-direction-column pt-1">
+          {/* <textarea
             id="code"
             style={{ height: "200px", width: "400px" }}
             value={javascriptCode}
             readOnly
           ></textarea>
-          <button className="button" onClick={() => {navigator.clipboard.writeText(JSON.stringify({xml: xml}))}}>Copy Filter JSON</button>
+          <button className="button" onClick={() => {navigator.clipboard.writeText(JSON.stringify({xml: xml}))}}>Copy Filter JSON</button> */}
           <ImageHarness
             loading={filterLoading}
             showRunButton

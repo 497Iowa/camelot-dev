@@ -38,7 +38,7 @@ const ImageHarness = props => {
   </button> : <></>
 
   return (
-    <>
+    <div>
         <div className="canvas-cntr">
           <canvas className="mx-auto is-block" id="test-canvas"></canvas>
           <div className={`canvas-overlay is-flex is-justify-content-center is-align-items-center ${!props.loading && !switching ? "overlay-hidden" : ""}`}>
@@ -69,7 +69,7 @@ const ImageHarness = props => {
        
         
         
-    </>
+    </div>
   );
 };
 

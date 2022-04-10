@@ -1,5 +1,9 @@
+html {
+  overflow-y: hidden;
+}
+
 .fill-height {
-  height: calc(100vh - 350px);
+  height: calc(100vh - 343px);
   margin: 20px;
   margin-top: 0px;
 }
@@ -174,7 +178,7 @@
 .lessons-msg {
   max-height: 234px;
   min-height: 234px;
-  overflow-y: scroll;
+  
 }
 
 .lessons-msg-body {
@@ -183,4 +187,21 @@
   flex-direction: column;
   justify-content: space-between;
   height: 190px;
+  overflow-y: scroll;
+}
+
+.load-btn {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0;
+  height: 28px;
+}
+
+.message-header {
+  padding: .5em 1em !important;
+}
+
+.msg-p {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

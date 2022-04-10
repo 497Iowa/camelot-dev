@@ -10,6 +10,7 @@ const Filters = () => {
   const [filterLoading, setFilterLoading] = useState(true);
 
   useEffect(() => {
+    document.body.parentElement.style.overflowY = "scroll";
     var ws = new Blockly.Workspace();
     setWorkspace(ws);
     window.renderFinished = [() => setFilterLoading(false)];

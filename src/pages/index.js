@@ -1,9 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
 
 const Home = () => {
     const [index, setIndex] = useState(0)
     const navigate = useNavigate();
+
+    useEffect(() => {
+      document.body.parentElement.style.overflowY = "hidden";
+    }, []);
+
     const images = [
         {
           name: "Default",
