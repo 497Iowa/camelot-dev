@@ -116,7 +116,7 @@ export default function Create() {
             value={javascriptCode}
             readOnly
           ></textarea>
-          <button className="button" onClick={() => {navigator.clipboard.writeText(JSON.stringify({xml: xml}))}}>Copy Filter JSON</button> */}
+          <button className="button" onClick={() => {navigator.clipboard.writeText(JSON.stringify({xml: xml}))}}>Copy Filter JSON</button>  */}
           <ImageHarness
             loading={filterLoading}
             showRunButton

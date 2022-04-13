@@ -37,7 +37,8 @@ const data = [
     <p>To do this, you would need an if statement, which checks for a condition, and if the condition is true, then it applies the inversion code. Here the condition will be on the blue value of the pixel, since we only want to affect the sky. We have provided some of the pieces you need for the <code>if</code> part: the <code>if do</code> block and the conditional comparison block; can you figure out the rest of what is needed? (For future reference, these blocks can be found in the Logic section.)</p>
     <p>You should already know everything you need for the <code>do</code> part. Now put it all together to make the filter!</p>
     <p>Hint: The sky encompasses all blue values over 100.</p>
-    </>
+    </>,
+    "xml":"<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"0argu%+[aZPsLM+)t:}(\">pixel</variable></variables><block type=\"for_each_pixel\" id=\"{~CbTV}~[Q42e2ADFK}Q\" x=\"46\" y=\"51\"><field name=\"PIXEL_VAR\" id=\"0argu%+[aZPsLM+)t:}(\">pixel</field><statement name=\"Loop\"><block type=\"controls_if\" id=\"$S/j8PAo`STmy3DM+E_h\"><statement name=\"DO0\"><block type=\"variables_set\" id=\"g`lwqhp),#j)mkeCF$t5\"><field name=\"VAR\" id=\"0argu%+[aZPsLM+)t:}(\">pixel</field></block></statement></block></statement></block><block type=\"logic_compare\" id=\"6}/%yp-Z%Z(t9=5#MA}.\" x=\"311\" y=\"58\"><field name=\"OP\">EQ</field></block></xml>"
         
   },
 ]
