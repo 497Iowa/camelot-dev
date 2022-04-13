@@ -19,10 +19,9 @@ const data = [
   },
   {
     "title": "Lesson 2 - Changing Colour Intensities",
-    "text": <><p>The goal of this lesson is to implement a filter that intensifies the redness of the image. As discussed in the previous lesson, you already have the necessary blocks to modify the colour of every pixel in the image. As it is now, it sets the colour of each pixel to the current values of red, green, and blue of the pixel. This means that the image colours stay the same. Our goal is to change that! Given that colours are represented by a range of numeric values, how can you make a filter which intensifies the redness of the image?</p>
-    <p>Hint:</p>
-    <p>Try increasing the value of the red in each pixel. (look in the math section) </p></>
-    
+    "text": <><p>The goal of this lesson is to implement a filter that intensifies the redness of the image. As discussed in the previous lesson, you already have the necessary blocks to modify the colour of every pixel in the image. In the previous lesson, you set the colour of each pixel to the current values of red, green, and blue of the pixel. This means that the image colours stay the same. Our goal is to change that! Given that colours are represented by a range of numeric values, how can you make a filter which intensifies the redness of the image?</p>
+    <p>Hint: Try increasing the value of the red in each pixel. (The provided block can be found in the math section.)</p></>,
+    "xml":"<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"0argu%+[aZPsLM+)t:}(\">pixel</variable></variables><block type=\"math_arithmetic\" id=\"pWGrJrLmb./9.Cc83.T8\" x=\"395\" y=\"100\"><field name=\"OP\">ADD</field><value name=\"A\"><shadow type=\"math_number\" id=\"3cwx*K*07Kxc!YdN#`7z\"><field name=\"NUM\">1</field></shadow></value><value name=\"B\"><shadow type=\"math_number\" id=\"u;6_Td3ZhFdju{P]9Ad=\"><field name=\"NUM\">1</field></shadow></value></block><block type=\"for_each_pixel\" id=\"{~CbTV}~[Q42e2ADFK}Q\" x=\"38\" y=\"138\"><field name=\"PIXEL_VAR\" id=\"0argu%+[aZPsLM+)t:}(\">pixel</field><statement name=\"Loop\"><block type=\"variables_set\" id=\"g`lwqhp),#j)mkeCF$t5\"><field name=\"VAR\" id=\"0argu%+[aZPsLM+)t:}(\">pixel</field><value name=\"VALUE\"><block type=\"colour_rgb\" id=\"Y$hS#9i`oc#E@e9#JsaU\"></block></value></block></statement></block></xml>"
   },
   {
     "title": "Lesson 3 - Image Inversion",
